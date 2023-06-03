@@ -1,15 +1,13 @@
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
-// const path = require("path")
 import path from "path"
 
-// https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.js"),
-      name: "beforeAfterCompare",
-      fileName: (format) => `${format}.js`,
+      name: "vue3-before-after-image",
+      fileName: (format) => `vue3-before-after-image.${format}.js`,
     },
     rollupOptions: {
       external: ["vue"],
@@ -20,6 +18,10 @@ export default defineConfig({
       },
     },
   },
-
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === "before-after-compare",
+    },
+  },
   plugins: [vue()],
 })

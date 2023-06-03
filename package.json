@@ -1,8 +1,19 @@
 {
-  "name": "-vue3-before-after-image",
+  "name": "vue3-before-after-image",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "main": "./dist/vue3-before-after-image.umd.js",
+  "module": "./dist/vue3-before-after-image.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-before-after-image.es.js",
+      "require": "./dist/vue3-before-after-image.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
